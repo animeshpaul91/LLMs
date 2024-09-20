@@ -1,0 +1,21 @@
+In this lecture, we will learn the two key concepts of maven namely the maven plugins and goals a maven plugin is a collection of one or more goals you have
+already used a couple of goals when you created the project and built it the generate goal from the archetype plugin and the install goal from the install
+
+plugin a goal can be a specific task which we usually run independently or it can be a part of a bigger build here the compile if we use it independently it
+compiles our Java classes and tests it can also be a part of a bigger build wherein we compile the source code and the test and then the test goal will run
+which will run our tests which is from the Surefire plugin and the package will
+
+
+package our compiled classes if the tests pass into jar files or if it is a web application it will package it into a war file these goals can also take
+parameters when you have used the archetype generate goal we have specified or mentioned several parameters such as group ID artifact ID etc and they can also have default
+values for these parameters the generate
+
+goal from archetype plugin if you do not pass the archetype artifact ID it will assume maven archetype quick start as a default value and create a project of
+that type we refer to a goal using the plugin ID colon the goal ID party type is the plugin ID and generate is the goal ID by itself maven does not know
+how to create a project compile it package it etc it uses the plugins like compiler jar to get the work done every
+maven project gets a set of these
+
+default plugins through the settings through the parent settings but we can override them by defining them in our
+pom dot xml for example later on in later sections you will be overriding the compiler settings by defining it in your pom dot XML and
+it will switch the version to 1.8
+

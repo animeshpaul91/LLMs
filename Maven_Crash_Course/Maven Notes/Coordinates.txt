@@ -1,0 +1,32 @@
+When we build our the plugins such as jar and war we'll look at the maven coordinates in the pom dot XML namely the group ID the artifact ID version and
+packaging for the information about the project these coordinates are internally represented by maven as group ID colon artifact ID colon packaged in colon
+version and it will decide where our project will be located in the maven.
+
+Repository and the name of the final output that is the jar file or war file or ear file that comes out of a maven build the name of it will be decided on
+decided by these coordinates the group ID is similar to a java package the naming convention for a group ID is toreverse the URL of our company and if it
+has sub-projects if we are working for a team particular team or a product we can include that in the name when our projects are placed into a maven
+
+Rpository may when will use these and create folders with these names very similar to packages you will learn and see it in action when I talk about
+repositories next is artifact ID it is like a sub element of the group ID this is used to name our project for example
+
+hello maven j unit etc whatever you
+
+define as artifact ID will be the name of the final jar or war that comes out in case of what we can override this I'll show you how to do that when you
+build war files later on next is version if you are continuously developing a project initially it will have a snapshot in the naming convention so we
+use a snapshot version when we are still continuously developing a project we haven't released it yet but once we release it it will have a solid version
+
+from that point it will be 1 dot 0 or 2 dot 0 etc last but not the least the packaging element is not directly used
+in the in the naming or in the location but indirectly packaging could be jar and war at the end of it the packaging decides what type of project is being built
+whether it's a jar project or a war
+
+project or a EAR project so using all these coordinates a particular project can be pushed into a maven repository and also later on when we need to add
+dependencies if one project depends on another project within our enterprise or even from the open source world using
+these four coordinates we will define that dependency in our pom dot XML
+
+for example in the hello pom
+
+maven pom dot XML you see these four coordinates here group ID artifact ID packaging and version this information will be used by maven to
+push this particular project as a jar file into the repository and if you see this J unit dependency we are using the
+group ID artifact ID and version information to pull the J unit dependency which is from the open source this is from the central repository of
+maven more about repositories in the next few lectures.
+

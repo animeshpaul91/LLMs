@@ -1,0 +1,60 @@
+package com.learnjava.parallelstreams;
+
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
+import static com.learnjava.util.CommonUtil.*;
+
+public class ParallelStreamPerformance {
+
+    // Parallel Stream performs worse in all these examples.
+    public int sumUsingIntStream(int count, boolean isParallel) {
+        startTimer();
+        IntStream intStream = IntStream.rangeClosed(0, count);
+
+        if (isParallel)
+            intStream = intStream.parallel();
+
+        int sum = intStream.sum();
+        timeTaken();
+        stopWatchReset();
+        return sum;
+    }
+
+
+    public int sum_using_list(List<Integer> inputList, boolean isParallel) {
+        startTimer();
+        Stream<Integer> inputStream = inputList.stream();
+
+        if (isParallel)
+            inputStream = inputStream.parallel();
+
+        int sum = inputStream
+                .mapToInt(Integer::intValue) // unboxing
+                .sum();
+        timeTaken();
+        stopWatchReset();
+        return sum;
+    }
+
+    public int sum_using_iterate(int n, boolean isParallel) {
+        startTimer();
+        Stream<Integer> integerStream = Stream.
+                iterate(0, i -> i + 1);
+
+
+        if (isParallel)
+            integerStream = integerStream.parallel();
+
+        int sum = integerStream
+                .limit(n + 1) // includes the end value too
+                .reduce(0, Integer::sum);
+
+        timeTaken();
+        stopWatchReset();
+        return sum;
+    }
+
+
+}

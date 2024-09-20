@@ -1,0 +1,33 @@
+The million-dollar question why use maven in addition to its convention over configuration maven offers several other
+advantages such as a common interface for the developers before maven if we as developers had to work on an open source project or even another project within our company or enterprise we had first understand how to build that project because each team might have
+their own way of configuring the build
+
+when they use other tools other than maven which is both time consuming and hectic that is where maven simplifies
+things by simply grabbing the project from the source control we can execute maven clean install and the project will be built for us because all the
+developers now will follow one standard project structure which is specified by maven secondly maven is not just a build management tool it can also manage
+dependencies that is if our project
+
+depends on other projects from within the organization or even in the open source world maven can grab those
+projects download those dependencies and it will use them to compile our source code run the test and even bundle these
+dependencies into war files and EAR files.
+
+Maven is this a concept called repository where it puts all the artifacts and its plugins and it will download them on the fly so if a project needs a particular dependency in the
+open source world or even within our firm those dependencies will be pulled from this repository and when we build
+our projects our projects can also be pushed into these repositories these repositories can be on the Internet there is a public maven repository where all the open-source projects are available as jars many companies
+maintain their own internal repository
+
+which runs on their servers that way they can have control on what jar files or what projects who open source projects the teams within
+that company can use and also they can share their artifacts within the company by pushing them to this repository here
+
+I have a Bharath.jar which is my own jar file once it is pushed to this repository any other team which wants to
+use it can simply pull it or added as a dependency and start using it more on repositories later on reuse maven is very lightweight when we download and
+install it it grabs whatever it needs as plugins it uses a plug-in model for example a compiler plugin surefire plugin that can run unit tests as well
+as the ws import plugin which can be used to generate stubs from a web services WSDL file and many other
+plugins are there so maven when uses a
+
+plug-in model through which these can be reused across projects and even if a upgrade happens to where the compiler or the Surefire plugin or any other plug-in
+maven will automatically download the latest plug-in for example this surefire plug-in will be downloaded by maven only when we run our very first unit test
+after that it will not download it until this plugin changes that is the beauty of using a plug-in model reuse as well as if i upgrade happens it can pull it
+on the fly with all these advantages maven of course is one of the best build management dependency management and completely a project management tool
+that should be used.
+

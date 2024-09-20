@@ -1,0 +1,21 @@
+when you ran the maven install command we have asked me when to execute a life cycle phase maven has multiple lifecycle phases starting from process resources compile test package and many more for brevity reasons I have skipped some
+phases in between as well as after package when you execute a maven package maven will run all the phases prior to
+it and then that particular phase if you run the test it will run process
+
+resources first then compile then the test phase we as developers can execute maven package and we need not specify maven process resources space compile
+space test 10 space package each phase life cycle phase is associated with one or more goals for example the process resources is associated with a resources plugins resources goal this is the one which does the actual work the phases
+are something maven internally knows but they don't do any work on their own they are simply a part of the life cycle
+
+actual work is done by the plugin goals associated with those phases we can have multiple goals associated with a face but usually there is only one goal the
+compile phase is associated with a compiler plugins compiler goal test with surefire test goal surefire is the plugin which can run the test package
+jar colon jar and so on when you execute a particular goal instead of giving Maven install you can also say maven
+
+space surefire colon test maven will then execute all the phases before the phase with which this goal is associated surefire test is associated with the test phase so maven will execute process resources and its associated goals
+compile its associated goal and then finally it will execute the surefire test code similarly if you execute jar all the phases prior to it will be executed and their
+associated goals will be executed then the jar goal will be executed depending
+
+on the type of the project the association might change if you are building a stand-alone java project the package phase can be associated with
+jar colon  jar and if it is a web application project maven dynamically associates it with a war colon war goal
+as a developer once you know that this is how the phases and goals work you can work on any java project developed by
+any other team and easily build it.
+

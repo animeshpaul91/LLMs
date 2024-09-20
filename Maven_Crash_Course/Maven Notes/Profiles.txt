@@ -1,0 +1,33 @@
+Build portability means the deployment engineer or a devops engineer or even a developer should be able to build the application across different environments without changing any configuration or by changing
+a little configuration maven allows  build portability through its profiles for example when
+
+we built an application that connects to a database or that consumes a web service this application needs a database connection information and the user name and password or it might need a web service url
+to connect . And talk to a web service.
+
+And these details will be different across different environments. On the Devon environment where the developer do the testing the database server might be different or
+the web service application might be running on dev server.
+
+So similarly the testing environment will have its own server or a database where the testing team has
+the entire database and data.
+
+And finally of course the production which will be accessed by the client will have we'll be running on a different database server or we'll host a web service on a different server and our app needs all
+this information and across environments as we build our application. We need to change these when we  deploy our application.
+
+If we are deploying on production we need to change the database information and point it to production.
+Or we should change the web service url so that our application points to the production Server instead of reducing
+
+this work and automating everything we can use profiles in maven and we create different profiles and based on which profile is currently activated and our application is built Maven will pick that information
+and make it a part of our application so that it can be deploid.
+
+So when we are building our application on Dev we will activate the dev profile and maven will pick the
+configuration for the dev profile only those files that has the database information on the web service connection
+information for dev.
+
+Similarly if we activate the test profile it will pick the appropriate configuration information and
+put it into the app. And same for Prod..
+
+So this is how it will look like we'll have a profiles folder under which we can have dev as subfolder which will
+have application.properties test and then prod as well and depending on which our profile is activated
+
+the build will pick up that particular application.properties which will have the connection information.
+So you're going to see Maven profiles how to activate them and much more in action in the next few lectures.

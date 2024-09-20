@@ -1,0 +1,7 @@
+{
+  "movie_id": "{{request.path.[3]}}",
+  "name": "Schindler's List",
+  "year": 1993,
+  "cast": "Liam Neeson, Ben Kingsley, {{jsonPath request.body '$.cast'}}",
+  "release_date": "1993-12-15"
+}

@@ -1,0 +1,7 @@
+/*
+	Tips for writing good unit tests:
+	1. Readability/Clarity - Name the methods very well. It should reflect what the test is doing.
+	2. Write your Unit Tests in such a way that they should fail only when there is something wrong with application code.
+	In other words, unit tests must not fail erroneously.
+	3. Use BDD-style testing.
+*/

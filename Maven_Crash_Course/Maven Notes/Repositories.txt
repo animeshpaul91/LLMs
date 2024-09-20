@@ -1,0 +1,54 @@
+When you run the maven install command for the very first time you would have seen that may when downloads quite a few
+plugins and jars from a central location on the Internet maven is very small when we install it and it downloads what is required to do the build from the
+central repository on the fly the default maven repository location is the following repo dot  maven dot Apache dot
+
+org /maven2 you can google for it and if it changes in the future again you should be able to Google for it and find this central location or when maven
+builds it will output this location for you the artifacts are stored under a certain folder structure on this server
+the folder structure is derived from the maven coordinates in the pom dot XML of a project for example the maven coordinates the J unit developers would
+have used his group ID J unit artifact ID is J unit version in our case is 3.8.1 that is the
+version we are using and scope is test
+
+if you go to the central repository the repo dot maven dot Apache dot org slash maven2 you will find all the libraries
+that are available publicly under maven and maven repository and you should be able to use them by declaring them as dependencies in your project do
+a ctrl f search for j unit and you will see that there is a j unit here so maven
+
+when it builds it uses the group ID to create a folder under the repository so click on that j unit it creates a subfolder again with the artifact ID if you go to the pom dot xml for
+j unit both the group ID and artifact id are j unit they haven't used any domain name or a URL in the group ID so
+j unit another sub folder under it j unit and one more folder using the version information so whatever version the j unit developers would have defined
+
+in their pom dot XML maven uses that version there are different versions here click on 3.8.1 and you will find all the artifacts under it that is how maven will put the final output into the repository here the j unit jar again the
+artifact ID is used to name this jar
+
+file hyphen the version information is used dot the jar or war depending on the project type in the maven dot XML for
+example in our case we have defined it as a jar if we want certain libraries that are not available in the central
+
+repository then we'll have to use a enterprise level repository there are several free products and also commercial products that are available
+that will create a local repository within our enterprise that can mirror the central repository and we can add
+
+whatever jars we want in this case for example Oracle dot jar if it is not available in the open public repository we can create a repository locally on a
+server running in our enterprise and we can put it there and then all the projects in our all the projects or the
+
+teams or the developers we think who are within our enterprise should be able to use it also we can push all the project
+jars that are local to our enterprise into this central repository and all the teams will be able to use those jars from that point maven also creates a
+local repository on a developer's machine it's not going to fetch these plugins and jars every time we run maven
+install it will pull these charts the very first time and then it will locate or put them into our local repository on your machine the location
+of it is under your user directory on
+
+windows go to your users directory under documents and browse to your user directory you will find a folder called dot m2 on Mac go to finder hit ctrl
+shift H that is the shortcut to get to the user directory under my user directory or ever use a directory you will find a dot M to folder which is the hidden folder click on that and you will find
+the repository folder double-click and you will see all the dependencies are all the jars here so whatever is
+required maven will download them and put them here under the repository let's browse to the j unit portion j unit j
+
+unit you will see the version information and then the j unit dot jar in your case you might see only certain versions because i have been using j
+unit and different versions of it I see all these folders if you don't see all of them that's okay but what is key is that you should know under your users
+directory there is a dot m to folder which maven creates and it also creates a folder called repository under which it will pull and place all the jar files
+using the group ID artifact ID versionand then the jar file if it is a war it will place the war file here you can also see the project you have created
+
+the hello maven project for me under dot m2 repository com bharath hello maven if you have used a different group
+ID your folder will be different and hello under hello maven it uses the one
+
+dot o hyphen snapshot which is the version information from our forum if you see com dot bharath is the group ID so it has created com and then Bharath
+similar to how packaging works in Java and then hello maven when is the artifact ID it has created one more folder the
+version information one more folder this way we can uniquely place a project into its sub directories and finally the jar file which uses the artifact ID the
+version information and then the dot jar is derived from the packaging.
+

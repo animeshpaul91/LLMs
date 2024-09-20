@@ -1,0 +1,10 @@
+Stubs are Good. But their major drawbacks are:
+1. They fail with dynamic conditioning as their implementations increase in size with more testing scenarios.
+2. They do not define services well.
+
+What is Mocking?
+--> Mocking is creating objects that simulate the behavior of real objects.
+--> Unlike stubs, mocks can be dynamically created from code - at runtime.
+--> Mocks offer more functionality than stubbing.
+ --> You can verify method calls and a lot of other things.
+

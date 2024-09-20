@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.bharath.product</groupId>
+	<artifactId>productparent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<!-- Packaging for Parent Project needs to be pom -->
+
+	<name>Product Parent</name>
+	<url>https://maven.apache.org</url>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.version>4.4</junit.version>
+		<maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
+	</properties>
+
+	<dependencies/>
+
+	<dependencyManagement>
+		<!-- This section sets the dependency versions globally throughout the project -->
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<!-- This sets the version for junit to be 4.4 to be used throughout the project -->
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<!-- This section sets the plugin versions globally throughout the project -->
+			<plugins>
+				<!-- Plugin to Configure Java Compiler Version -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<!-- This section sets the maven compiler plugin version globally throughout the project -->
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+					<!-- This configuration version information also need not be re-declared in child pom -->
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<!-- Need to specify the names of all child modules -->
+	<modules>
+		<module>productservices</module>
+		<module>productweb</module>
+	</modules>
+
+</project>
+

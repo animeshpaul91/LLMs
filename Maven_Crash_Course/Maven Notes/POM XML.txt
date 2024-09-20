@@ -1,0 +1,16 @@
+
+When we execute a maven command to build a project the maven command looks for the pom dot XML under the project for information open this pom dot XML and it has a lot of information such as what type of project it is in this case it is
+a jar project it could be war or several other types that are available the name of the project the artifact ID as well
+
+as a user friendly name and a URL if there is one associated with this project this is optional this tells which company owns this product or
+project www.bharaththippireddy.com HTTP colon two forward slashes similarly the group ID the artifact ID the packaging and version these four fields are call maven coordinates more on this in
+lecture later on last but not the leastthe dependency section is where we add
+
+all the libraries that our project needs in order to function whatever third-party libraries or libraries from
+within other teams or projects with our enterprise can be included here as dependencies the archetype that we have used to generate this project has
+included the J unit dependency because we need to write unit tests any Java project should have unit tests that is
+the reason it included J unit library in here we can add any number of libraries within the dependencies element multiple
+
+dependencies can be added and you willbe doing that in lectures later on this is the simplest of maven files that you
+can see you are going to modify this mail file later on and create much more complex maven files.
+

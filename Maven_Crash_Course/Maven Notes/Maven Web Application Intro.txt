@@ -1,0 +1,10 @@
+in this section you will start working on the web application piece of our use
+case you will create a maven web application using eclipse you will then create the two servlets that will allow
+
+the end user to add a product and display the product details you are not going to code the and I have servlets
+you are just going to create them in this section and they will fill in the gaps in the next section it will then
+add the servlet dependency that is
+
+required to compile our servlet and finally you will create a HTML page that
+we'll be using to add a product later on.
+

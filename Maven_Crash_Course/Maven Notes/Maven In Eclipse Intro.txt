@@ -1,0 +1,16 @@
+
+In this section you are going to create and build a Java maven project from within the Eclipse IDE it will start by
+working on a use case which you will
+
+work on the next few sections as well in this section you will create a standalone project customize the
+settings of it so that it will use the latest versions of Java which you have you will implement the data and business
+layers you are not going to go against a real database we are going to use some
+
+internal collections will define some collections and put data into them in our classes and then it will develop the
+
+business layer which uses that data access layer all that will be explained in detail and I talked about the use
+case then you will add any external dependencies that our project needs you
+
+will learn how to add dependencies to the pom dot XML and finally of course he will build the project both from
+within eclipse as well as outside Eclipse and also how to run and skip unit tests.
+

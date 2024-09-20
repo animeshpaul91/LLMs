@@ -1,0 +1,48 @@
+
+Maven allows us to specify the visibility of our project dependencies using a scope element which scope
+we use will impact on when those dependencies are available in the maven lifecycle for our project
+
+their are total of  six dependencies starting with compile run time provided test system an import.
+If we use the compile time scope then that those dependencies will be available during the project build.
+
+That is when our class are compiled when our tests are compiled and the test are run and then our application
+is run and by default if we don't specify any scope compile is the scope that will be used by Maven next is provided.
+
+These are the dependencies that are required during the build test and run but they are not required
+to be exported meaning they need not be a part of our application when they are depliod For example if we
+
+are building a web application then the servlet- API is required locally in our project when we compile
+our classes when we run our test but it need not go into the war file or the web application when it is deploid to a server because. Servers or  application.
+Containers or web containers.
+
+Well how the servlet API jar that is the reason will mark a servlet API dependency has provided.
+So any dependency that you don't want to export into a web application or into a enterprise application.
+You mark it with scope called provided.
+
+Next is runtime as the name itself says these dependencies maintain a runtime scope. These are available only for running the tests as well as our application.
+They will not be available for compilation test scope as the name itself says.
+
+Again these are available to compile our test and run the tests j-Unit is a very good example.
+We don't need j-unit to compile our application source classes.
+We need it or our application classes we need this for compiling our test as well as running the test system scope which is very less used.
+
+It is not that popular but still system scope is similar to that offer a provided scope but instead of
+an application container or a web container providing that dependency or that is not even pulled from a maven 
+
+repositary we will copy this onto a subdirectory of our project and we will point when we use
+the system scope will also provide a path to that particular dependency which is relative to our project usually.
+So this is very rarely used.
+
+But remember that if you want to point to a library which is not a part of a maven dependency and
+not even provided by a web container then you will use the system scope and point to that external dependency.
+Last but not the least import.
+
+Again as the name itself says this is used on Pom based projects not Jar projects not war projects
+put on Pom based projects.
+
+I'll talk more about this dependency when I do a section on and I do a lecture on dependency management
+later on.
+
+To summarize the total six scopes in maven are compiled run time provided test  system an import
+and depending on what scope you mark a dependency with it will affect the availability of their dependency
+during the maven lifecycle for our projects.

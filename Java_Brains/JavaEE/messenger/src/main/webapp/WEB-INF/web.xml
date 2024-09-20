@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <!-- The Servlet class is in the classpath in one of the jersey JARs -->
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>org.javabrains.jax.rs.messenger</param-value>
+            <!-- When a request is made, jersey will look for resources in this package recursively -->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <!-- Servlet name has to be similar to line # 6. This is how a servlet is identified -->
+        <url-pattern>/webapi/*</url-pattern>
+        <!-- The URL Pattern followed by the application context is /webapi/** -->
+        <!-- Anything following /webapi/** will be handled by application code -->
+    </servlet-mapping>
+</web-app>
