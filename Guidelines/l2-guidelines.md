@@ -25,7 +25,7 @@ This helper function will make it easier to use prompts and look at the generate
 
 
 ```python
-def get_completion(prompt, model="gpt-3.5-turbo"):
+def get_completion(prompt, model="gpt-4o"):
     messages = [{"role": "user", "content": prompt}]
     response = openai.ChatCompletion.create(
         model=model,
@@ -80,9 +80,14 @@ Summarize the text delimited by triple backticks \
 into a single sentence.
 ```{text}```
 """
+
+# print(prompt)
 response = get_completion(prompt)
 print(response)
 ```
+
+    To achieve the desired output from a model, provide clear and specific instructions, as longer prompts often offer better clarity and context, reducing irrelevant or incorrect responses.
+
 
 #### Tactic 2: Ask for a structured output
 - JSON, HTML
@@ -98,6 +103,30 @@ book_id, title, author, genre.
 response = get_completion(prompt)
 print(response)
 ```
+
+    ```json
+    [
+        {
+            "book_id": 1,
+            "title": "Whispers of the Forgotten Forest",
+            "author": "Elara Moonstone",
+            "genre": "Fantasy"
+        },
+        {
+            "book_id": 2,
+            "title": "The Quantum Detective",
+            "author": "Maxwell Hawthorne",
+            "genre": "Science Fiction"
+        },
+        {
+            "book_id": 3,
+            "title": "Echoes of a Silent City",
+            "author": "Lydia Winters",
+            "genre": "Mystery"
+        }
+    ]
+    ```
+
 
 #### Tactic 3: Ask the model to check whether conditions are satisfied
 
@@ -134,6 +163,15 @@ print("Completion for Text 1:")
 print(response)
 ```
 
+    Completion for Text 1:
+    Step 1 - Get some water boiling.  
+    Step 2 - Grab a cup and put a tea bag in it.  
+    Step 3 - Once the water is hot enough, pour it over the tea bag.  
+    Step 4 - Let it sit for a bit so the tea can steep.  
+    Step 5 - After a few minutes, take out the tea bag.  
+    Step 6 - If you like, add some sugar or milk to taste.
+
+
 
 ```python
 text_2 = f"""
@@ -167,6 +205,10 @@ print("Completion for Text 2:")
 print(response)
 ```
 
+    Completion for Text 2:
+    No steps provided.
+
+
 #### Tactic 4: "Few-shot" prompting
 
 
@@ -186,6 +228,14 @@ the most intricate tapestry begins with a solitary thread.
 response = get_completion(prompt)
 print(response)
 ```
+
+    <grandparent>: The mighty oak stands tall through \ 
+    the fiercest storms, its roots anchored deep in the \ 
+    earth; the phoenix rises anew from the ashes, \ 
+    embracing each dawn with renewed strength; \ 
+    the mountain endures the test of time, its peaks \ 
+    unwavering against the winds of change.
+
 
 ### Principle 2: Give the model time to “think” 
 
@@ -209,10 +259,10 @@ prompt_1 = f"""
 Perform the following actions: 
 1 - Summarize the following text delimited by triple \
 backticks with 1 sentence.
-2 - Translate the summary into French.
-3 - List each name in the French summary.
+2 - Translate the summary into Bengali.
+3 - List each name in the Bengali summary. Output the names in bengali
 4 - Output a json object that contains the following \
-keys: french_summary, num_names.
+keys: bengali_summary, num_names.
 
 Separate your answers with line breaks.
 
@@ -223,6 +273,22 @@ response = get_completion(prompt_1)
 print("Completion for prompt 1:")
 print(response)
 ```
+
+    Completion for prompt 1:
+    1 - Siblings Jack and Jill embarked on a joyful quest to fetch water from a hilltop well, but after a mishap where they both tumbled down, they returned home slightly battered yet undeterred in their adventurous spirits.
+    
+    2 - ভাইবোন জ্যাক এবং জিল একটি আনন্দময় অভিযানে পাহাড়ের চূড়ার কুয়ো থেকে জল আনতে বের হয়েছিল, কিন্তু একটি দুর্ঘটনার পরে যেখানে তারা উভয়েই গড়িয়ে পড়েছিল, তারা সামান্য আহত অবস্থায় বাড়ি ফিরে আসে, তবুও তাদের সাহসী মনোবল অটুট ছিল।
+    
+    3 - জ্যাক, জিল
+    
+    4 - 
+    ```json
+    {
+      "bengali_summary": "ভাইবোন জ্যাক এবং জিল একটি আনন্দময় অভিযানে পাহাড়ের চূড়ার কুয়ো থেকে জল আনতে বের হয়েছিল, কিন্তু একটি দুর্ঘটনার পরে যেখানে তারা উভয়েই গড়িয়ে পড়েছিল, তারা সামান্য আহত অবস্থায় বাড়ি ফিরে আসে, তবুও তাদের সাহসী মনোবল অটুট ছিল।",
+      "num_names": 2
+    }
+    ```
+
 
 #### Ask for output in a specified format
 
@@ -238,9 +304,9 @@ Your task is to perform the following actions:
   following keys: french_summary, num_names.
 
 Use the following format:
-Text: <text to summarize>
+Text to Summarize: <text to summarize>
 Summary: <summary>
-Translation: <summary translation>
+French Translation: <summary translation>
 Names: <list of names in summary>
 Output JSON: <json with summary and num_names>
 
@@ -250,6 +316,19 @@ response = get_completion(prompt_2)
 print("\nCompletion for prompt 2:")
 print(response)
 ```
+
+    
+    Completion for prompt 2:
+    Text to Summarize: In a charming village, siblings Jack and Jill set out on a quest to fetch water from a hilltop well. As they climbed, singing joyfully, misfortune struck—Jack tripped on a stone and tumbled down the hill, with Jill following suit. Though slightly battered, the pair returned home to comforting embraces. Despite the mishap, their adventurous spirits remained undimmed, and they continued exploring with delight.
+    
+    Summary: Siblings Jack and Jill went on an adventure to fetch water from a hilltop well, but after a fall, they returned home safely and continued their explorations with enthusiasm.
+    
+    French Translation: Les frères et sœurs Jack et Jill sont partis à l'aventure pour chercher de l'eau à un puits au sommet d'une colline, mais après une chute, ils sont rentrés chez eux sains et saufs et ont continué leurs explorations avec enthousiasme.
+    
+    Names: Jack, Jill
+    
+    Output JSON: {"french_summary": "Les frères et sœurs Jack et Jill sont partis à l'aventure pour chercher de l'eau à un puits au sommet d'une colline, mais après une chute, ils sont rentrés chez eux sains et saufs et ont continué leurs explorations avec enthousiasme.", "num_names": 2}
+
 
 #### Tactic 2: Instruct the model to work out its own solution before rushing to a conclusion
 
@@ -281,6 +360,27 @@ response = get_completion(prompt)
 print(response)
 ```
 
+    The student's solution is correct. The total cost for the first year of operations as a function of the number of square feet \( x \) is calculated as follows:
+    
+    1. **Land cost**: \( 100x \) (since land costs $100 per square foot)
+    2. **Solar panel cost**: \( 250x \) (since solar panels cost $250 per square foot)
+    3. **Maintenance cost**: \( 100,000 + 10x \) (a flat $100,000 per year plus $10 per square foot)
+    
+    The total cost is the sum of these three components:
+    
+    \[
+    100x + 250x + 100,000 + 10x = 360x + 100,000
+    \]
+    
+    The student made an error in the maintenance cost calculation. The correct maintenance cost should be \( 100,000 + 10x \), not \( 100,000 + 100x \). Therefore, the correct total cost should be:
+    
+    \[
+    360x + 100,000
+    \]
+    
+    The student's final expression \( 450x + 100,000 \) is incorrect. The correct expression is \( 360x + 100,000 \).
+
+
 #### Note that the student's solution is actually not correct.
 #### We can fix this by instructing the model to work out its own solution first.
 
@@ -296,7 +396,7 @@ and evaluate if the student's solution is correct or not.
 Don't decide if the student's solution is correct until 
 you have done the problem yourself.
 
-Use the following format:
+Use the following format for your response:
 Question:
 ```
 question here
@@ -346,17 +446,42 @@ response = get_completion(prompt)
 print(response)
 ```
 
+    ```
+    Let x be the size of the installation in square feet.
+    Costs:
+    1. Land cost: 100x (since land costs $100 per square foot)
+    2. Solar panel cost: 250x (since solar panels cost $250 per square foot)
+    3. Maintenance cost: 100,000 + 10x (since the maintenance costs a flat $100k per year plus $10 per square foot)
+    Total cost: 100x + 250x + 100,000 + 10x = 360x + 100,000
+    ```
+    Is the student's solution the same as actual solution just calculated:
+    ```
+    no
+    ```
+    Student grade:
+    ```
+    incorrect
+    ```
+
+
 ## Model Limitations: Hallucinations
 - Boie is a real company, the product name is not real.
 
 
 ```python
+## Real Company, but fake product
+
 prompt = f"""
 Tell me about AeroGlide UltraSlim Smart Toothbrush by Boie
 """
 response = get_completion(prompt)
 print(response)
 ```
+
+    As of my last update, there isn't specific information available about a product called the "AeroGlide UltraSlim Smart Toothbrush" by Boie. Boie is known for producing eco-friendly personal care products, including toothbrushes made from sustainable materials. Their products often focus on being environmentally friendly, with features like replaceable heads and materials that are gentle on the gums.
+    
+    If the AeroGlide UltraSlim Smart Toothbrush is a new release or a product that has been announced after my last update, I recommend checking Boie's official website or their latest press releases for the most accurate and up-to-date information. Additionally, you might find reviews or product details on major retail websites or tech news outlets.
+
 
 ## Try experimenting on your own!
 
@@ -389,8 +514,3 @@ openai.api_key = "sk-..."
 #### A note about the backslash
 - In the course, we are using a backslash `\` to make the text fit on the screen without inserting newline '\n' characters.
 - GPT-3 isn't really affected whether you insert newline characters or not.  But when working with LLMs in general, you may consider whether newline characters in your prompt may affect the model's performance.
-
-
-```python
-
-```
