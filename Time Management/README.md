@@ -1,4 +1,4 @@
-**Your Ideal Weekday**
+**Your Ideal Weekday (Ideal Day-1)**
 
 | Activity | Time |
 |----------|------|
@@ -16,7 +16,7 @@
 
 ---
 
-**Your Ideal Holiday (Except Sunday)**
+**Your Ideal Holiday Except Sunday (Ideal Day-2)**
 
 | Activity | Time |
 |----------|------|
@@ -36,7 +36,7 @@
 
 ---
 
-**Your Ideal Sunday**
+**Your Ideal Sunday (Ideal Day-2)**
 
 | Activity | Time |
 |----------|------|
@@ -56,17 +56,6 @@
 
 ---
 
-**Ultimate Fat Loss Calorie Deficit Diet**
-
-- Drink 2 warm glasses of water after getting up (7:00 – 7:30 AM)
-- 20 mins of pranayam + strength training
-- Breakfast: Oats (8:30 AM)
-- Lunch (4-5 hours after breakfast, 12:30 – 1:30 PM): Dal and black chana/chickpeas (soaked overnight), eaten slowly
-- Evening snack (5:00 PM): A fruit (apple) and dry fruit (walnuts)
-- Dinner (7:30 PM): Very little rice with salmon curry and vegetable salad
-
----
-
 **The 9 Pillars of Happiness**
 
 **Which activities would you love doing? Think from the perspective of the 9 pillars of happiness.**
@@ -74,14 +63,14 @@
 |Logo| Pillar | Activity |
 |--------|---------|----------|
 | 💪 | Doing any type of physical activity | Gym |
-| 📝 | Solving meaningful complex problems | Work |
+| 📝 | Solving meaningful complex problems | Solving Software Engineering Problems at Workplace |
 | 🌱 | Helping other people, animals, or the planet | NA |
 | 🎨 | Creative Work | Music (Guitar) |
 | 🌍 | Exploring new places | Spring and Summer Travel |
-| ⚙️ | Learning new things | Upskilling @Udemy,YouTube & Reading |
+| ⚙️ | Learning new things | Upskilling @ Udemy, YouTube & Reading |
 | 💡 | Working on new ideas | NA |
 | ❤️ | Spending time with people you love | NA |
-| 📈 | Progression in life/career/business | Uspskill & Learning Photography |
+| 📈 | Progression in life/career/business | Upskilling & Learning Photography |
 
 ---
 
@@ -106,3 +95,15 @@
 | Goal 3 |  |
 
 Example of a SMART Goal: Instead of setting a vague goal like *"Improve my fitness,"* a SMART goal would be: *"Run 3 miles in 30 minutes, 4 times a week for the next 3 months."*
+
+
+**Ultimate Fat Loss Calorie Deficit Diet**
+
+- Drink 2 warm glasses of water after getting up (7:00 – 7:30 AM)
+- 20 mins of pranayam + strength training
+- Breakfast: Oats (8:30 AM)
+- Lunch (4-5 hours after breakfast, 12:30 – 1:30 PM): Dal and black chana/chickpeas (soaked overnight), eaten slowly
+- Evening snack (5:00 PM): A fruit (apple) and dry fruit (walnuts)
+- Dinner (7:30 PM): Very little rice with salmon curry and vegetable salad
+
+---
