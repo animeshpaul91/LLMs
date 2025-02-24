@@ -6,16 +6,17 @@ Track your time. How are you actually spending your time on an average weekday?
 Be truthful and honest for best results.  
 
 ### Time | Activity  
-01 |  
-02 |  
-03 |  
-04 |  
-05 |  
-06 |  
-07 |  
-08 |  
-09 |  
-10 |  
+|----|-----------|  
+| 01 | |  
+| 02 | |  
+| 03 | |  
+| 04 | |  
+| 05 | |  
+| 06 | |  
+| 07 | |  
+| 08 | |  
+| 09 | |  
+| 10 | |  
 
 ---
 
@@ -23,15 +24,15 @@ Be truthful and honest for best results.
 Consider how you can minimize or eliminate these wasted activities and replace them with activities from your **Ideal Day One.**  
 Use the space below for notes:  
 
-11 |  
-12 |  
-13 |  
-14 |  
-15 |  
-16 |  
-17 |  
-18 |  
-19 |  
+| 11 | |  
+| 12 | |  
+| 13 | |  
+| 14 | |  
+| 15 | |  
+| 16 | |  
+| 17 | |  
+| 18 | |  
+| 19 | |  
 
 ---
 
@@ -41,18 +42,19 @@ Your weekends would probably be looking very different from your weekdays.
 So track your typical weekend day here.  
 
 ### Time | Activity  
-01 |  
-02 |  
-03 |  
-04 |  
-05 |  
-06 |  
-07 |  
-08 |  
-09 |  
-10 |  
-11 |  
-12 |  
+|----|-----------|  
+| 01 | |  
+| 02 | |  
+| 03 | |  
+| 04 | |  
+| 05 | |  
+| 06 | |  
+| 07 | |  
+| 08 | |  
+| 09 | |  
+| 10 | |  
+| 11 | |  
+| 12 | |  
 
 ---
 
@@ -60,13 +62,13 @@ So track your typical weekend day here.
 Consider how you can minimize or eliminate these wasted activities and replace them with activities from your **Ideal Day Two.**  
 Use the space below for notes:  
 
-13 |  
-14 |  
-15 |  
-16 |  
-17 |  
-18 |  
-19 |  
+| 13 | |  
+| 14 | |  
+| 15 | |  
+| 16 | |  
+| 17 | |  
+| 18 | |  
+| 19 | |  
 
 ---
 
@@ -76,23 +78,23 @@ Some of you may have a third kind of day in your life depending upon your lifest
 For example, if you travel a lot, then your **typical travel day** would look different from your typical week/weekend day.  
 
 ### Time | Activity  
-01 |  
-02 |  
-03 |  
-04 |  
-05 |  
-06 |  
-07 |  
-08 |  
-09 |  
-10 |  
-11 |  
-12 |  
-
-13 |  
-14 |  
-15 |  
-16 |  
-17 |  
-18 |  
-19 |  
+|----|-----------|  
+| 01 | |  
+| 02 | |  
+| 03 | |  
+| 04 | |  
+| 05 | |  
+| 06 | |  
+| 07 | |  
+| 08 | |  
+| 09 | |  
+| 10 | |  
+| 11 | |  
+| 12 | |  
+| 13 | |  
+| 14 | |  
+| 15 | |  
+| 16 | |  
+| 17 | |  
+| 18 | |  
+| 19 | |  
