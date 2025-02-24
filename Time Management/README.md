@@ -69,17 +69,19 @@
 
 **The 9 Pillars of Happiness**
 
-| Pillar | Activity |
-|--------|---------|
-| 💪 | Doing any type of physical activity |
-| 📝 | Solving meaningful complex problems |
-| 🌱 | Helping other people, animals, or the planet |
-| 🎨 | Creative Work |
-| 🌍 | Exploring new places |
-| ⚙️ | Learning new things |
-| 💡 | Working on new ideas |
-| ❤️ | Spending time with people you love |
-| 📈 | Progression in life/career/business |
+**Which activities would you love doing? Think from the perspective of the 9 pillars of happiness.**
+
+|Logo| Pillar | Activity |
+|--------|---------|----------|
+| 💪 | Doing any type of physical activity | Gym |
+| 📝 | Solving meaningful complex problems | Work |
+| 🌱 | Helping other people, animals, or the planet | NA |
+| 🎨 | Creative Work | Music (Guitar) |
+| 🌍 | Exploring new places | Spring and Summer Travel |
+| ⚙️ | Learning new things | Upskilling @Udemy,YouTube & Reading |
+| 💡 | Working on new ideas | NA |
+| ❤️ | Spending time with people you love | NA |
+| 📈 | Progression in life/career/business | Uspskill & Learning Photography |
 
 ---
 
