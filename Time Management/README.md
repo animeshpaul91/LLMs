@@ -1,6 +1,3 @@
-## Assignment-1
-
-
 **Your Ideal Weekday (Ideal Day-1)**
 
 | Activity | Time |
