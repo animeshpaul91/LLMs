@@ -90,9 +90,9 @@
 
 | Description of Goal | Daily Task |
 |---------------------|-----------|
-| Goal 1 |  |
-| Goal 2 |  |
-| Goal 3 |  |
+| Goal 1 | Run 4 miles in 45 minutes, 4 times a week & 15 mins of breathing exercises for the next 4 months to reduce visceral fat. |
+| Goal 2 | Practice guitar for 30 minutes, 5 times a week for the next 4 months to master guitar chords to play simple songs with easier chord progressions just by listening to them. |
+| Goal 3 | Read a book for 1 hour daily to learn and gain knowledge on any topic. |
 
 Example of a SMART Goal: Instead of setting a vague goal like *"Improve my fitness,"* a SMART goal would be: *"Run 3 miles in 30 minutes, 4 times a week for the next 3 months."*
 
