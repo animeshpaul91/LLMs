@@ -28,7 +28,7 @@ Consider how you can minimize or eliminate these wasted activities and replace t
 Use the space below for notes:  
 
 |Index |Time | Activity
-|----|-----------|
+|----|-----------|-----
 | 11 | |  
 | 12 | |  
 | 13 | |  
@@ -46,8 +46,8 @@ Use the space below for notes:
 Your weekends would probably be looking very different from your weekdays.  
 So track your typical weekend day here.  
 
-|Time | Activity  
-|----|-----------|  
+|Index |Time | Activity
+|----|-----------|-----  
 | 01 | |  
 | 02 | |  
 | 03 | |  
@@ -67,8 +67,8 @@ So track your typical weekend day here.
 Consider how you can minimize or eliminate these wasted activities and replace them with activities from your **Ideal Day Two.**  
 Use the space below for notes:  
 
-|Time | Activity  
-|----|-----------|
+|Index |Time | Activity
+|----|-----------|-----
 | 13 | |  
 | 14 | |  
 | 15 | |  
@@ -84,8 +84,8 @@ Use the space below for notes:
 Some of you may have a third kind of day in your life depending upon your lifestyle.  
 For example, if you travel a lot, then your **typical travel day** would look different from your typical week/weekend day.  
 
-|Time | Activity  
-|----|-----------|  
+|Index |Time | Activity
+|----|-----------|-----  
 | 01 | |  
 | 02 | |  
 | 03 | |  
