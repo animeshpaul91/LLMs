@@ -19,6 +19,19 @@
 | Urgency/Importance | Urgent    | Not Urgent |  
 |--------------------|-----------|------------|  
 | Important          | Do it now | Schedule a time to do it |  
-| Not Important      | Delegate  | Delete | 
+| Not Important      | Delegate  | Delete |
 
 
+### Rule of the One
+- Address the most important work of the day.
+
+
+### Rule of three
+- Once you address the most important work of the day, try to tackle three smaller tasks. You will have momentum going.
+- Club smaller tasks one after one. This is called task clubbing.
+
+### Balance your pillars
+- Always balance your pillars of happiness. 
+- If you spent 4 hours of deep focused work in a day, make sure you allot time for activities that counterbalance the deep work. 
+- Examples include - physical exercise, taking a walk, music, traveling. Or else you will be burnt out. Allow to relax your body and mind.
+- Aim for sustainable productivity. It will be maximum when your happiness is also maximum. Do not be overly strict. Have a rough plan.
