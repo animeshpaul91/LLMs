@@ -2,7 +2,6 @@
 
 **/**/.idea
 *.jar
-*.pdf
 Functional_Programming/docs
 Futures/docs
 Futures/webappdemo/HELP.md
