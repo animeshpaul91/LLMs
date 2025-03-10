@@ -19,3 +19,7 @@
 - Guide the model to think through its answer.
 - Experiment and iterate. Start of with something and seeing if the results are satisfactory and adjusting the prompt to get a more accurate and a finer response.
 - Do not overthink the initial prompt - quickly give it some context, then prompt the LLM to get its response, see what you get and iteratively refine your prompt from there.
+
+
+### What is a Token?
+Token is the most fundamental subset of a word which the LLM processes as a single atomic unit. It is loosely a word or a sub-part of a word. Roughly 1 token = (3/4) words.
