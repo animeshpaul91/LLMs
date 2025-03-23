@@ -56,21 +56,20 @@
 
 ---
 
-**Consolidated Time Table**
+### My Ideal Weekly Timetable
 
-| Activity                      | Weekdays (Mon-Fri)                | Saturday                            | Sunday                            |
-| ----------------------------- | --------------------------------- | ----------------------------------- | --------------------------------- |
-| **Sleep**                     | 11:30 PM - 6:00 AM                | 11:30 PM - 8:00 AM                  | 11:30 PM - 8:00 AM                |
-| **Morning Routine**           | 6:00 AM - 8:45 AM                 | 8:00 AM - 9:00 AM                   | 8:00 AM - 9:00 AM                 |
-| **Breakfast & Start Work**    | 8:45 AM - 9:00 AM                 | 9:00 AM - 10:15 AM (Gym)            | 9:00 AM - 10:15 AM (Gym)          |
-| **Work/Upskill/Chores**       | 9:00 AM - 1:00 PM (Work)          | 10:15 AM - 1:00 PM (Upskill)        | 10:15 AM - 1:30 PM (Cooking)      |
-| **Lunch & Break**             | 1:00 PM - 2:00 PM                 | 1:00 PM - 2:00 PM (TV)              | 1:30 PM - 2:00 PM (TV)            |
-| **Afternoon Work/Activities** | 2:00 PM - 6:00 PM (Work)          | 2:00 PM - 4:00 PM (Groceries)       | 2:00 PM - 4:30 PM (Movie)         |
-| **Evening Break/Leisure**     | 6:00 PM - 7:00 PM (Chill)         | 4:00 PM - 6:00 PM (Guitar)          | 4:30 PM - 6:30 PM (Reading)       |
-| **Exercise/Cooking**          | 7:00 PM - 8:00 PM                 | 6:30 PM - 8:30 PM (Photo)           | 6:30 PM - 7:00 PM (Walk)          |
-| **Hobby/Upskill**             | 8:00 PM - 11:30 PM                | 8:30 PM - 9:00 PM (Guitar)          | 7:00 PM - 9:00 PM (Upskill)       |
-| **Dinner & Relaxation**       | During Hobby (8:00 PM - 11:30 PM) | 9:00 PM - 11:30 PM (Movie & Dinner) | 9:00 PM - 9:30 PM (Dinner)        |
-| **Final Hobby/Upskill**       | -                                 | -                                   | 9:30 PM - 11:30 PM (Photo/Guitar) |
+| Time                   | **Weekday**                                         | **Saturday**                                  | **Sunday**                                              |
+| ---------------------- | --------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------- |
+| **6:00 - 8:00 AM**     | Sleep (until 7:40/7:45 AM)                          | Sleep                                         | Sleep                                                   |
+| **8:00 - 9:00 AM**     | Brush, Freshen Up, Breakfast Prep                   | Brush, Breakfast w/ Music                     | Brush, Breakfast w/ Music                               |
+| **9:00 - 11:00 AM**    | Work                                                | Gym (9:00 - 10:15), Shower                    | Gym (9:00 - 10:15), Shower                              |
+| **11:00 AM - 1:00 PM** | Work                                                | Upskill (Udemy/Skillshare)                    | Prepare Lunch                                           |
+| **1:00 - 2:00 PM**     | Shower & Lunch                                      | Lunch & TV                                    | Lunch & TV                                              |
+| **2:00 - 6:00 PM**     | Work                                                | Groceries (2:00 - 4:00), Guitar (4:00 - 6:00) | Chill/Movie (2:00 - 4:30), Read w/ Coffee (4:30 - 6:00) |
+| **6:00 - 7:00 PM**     | Chill (Coffee, Drive, etc.)                         | Coffee (6:00 - 6:30), Photo (6:30 - 7:00)     | Walk (6:30 - 7:00)                                      |
+| **7:00 - 9:00 PM**     | Gym/Cook                                            | Photo (until 8:30), Guitar (8:30 - 9:00)      | Upskill (Udemy)                                         |
+| **9:00 - 11:30 PM**    | Dinner & Hobby/Upskill (Guitar, Photo, Book, Udemy) | Movie & Dinner                                | Dinner (9:00 - 9:30), Photo/Guitar                      |
+| **11:30 PM - 6:00 AM** | Sleep                                               | Sleep                                         | Sleep                                                   |
 
 **The 9 Pillars of Happiness**
 
