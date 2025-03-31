@@ -6,11 +6,12 @@ from openai import OpenAI
 from openai.types.chat.chat_completion import ChatCompletion
 
 # Set up load_dotenv()
-load_dotenv() # sets up env variables from .env
+load_dotenv()  # sets up env variables from .env
 
 # Call open-ai model using chat completion create.
 client = OpenAI()
 LLM = os.environ.get("OPEN_AI_MODEL")
+
 
 def ask_openai(input_prompt: str) -> ChatCompletion:
     response = client.chat.completions.create(
@@ -23,6 +24,12 @@ def ask_openai(input_prompt: str) -> ChatCompletion:
         ],
     )
     return response
+
+
+def get_response(input_prompt: str) -> str:
+    response = ask_openai(input_prompt)
+    return response.choices[0].message.content
+
 
 if __name__ == "__main__":
     # Print the Type and Response
