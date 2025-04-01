@@ -11,19 +11,20 @@ LLM = os.environ.get("OPEN_AI_MODEL")
 
 
 # Call the openai chat.completions endpoint
-def ask_openai(user_question: str, temperature: float = 1.0) -> ChatCompletion:
+def ask_openai(user_question: str, temperature: float = 1.0, max_completion_tokens: int = 128) -> ChatCompletion:
     response = client.chat.completions.create(
         model=LLM,
         messages=[{"role": "user", "content": user_question}],
-        temperature=temperature
+        temperature=temperature,
+        max_completion_tokens = max_completion_tokens
     )
 
     # print(f"response  type : {type(response)}")
     return response
 
 
-def get_response(user_question: str, temperature: float = 0.2) -> str:
-    response = ask_openai(user_question, temperature)
+def get_response(user_question: str, temperature: float = 0.2, max_completion_tokens: int = 128) -> str:
+    response = ask_openai(user_question, temperature, max_completion_tokens)
     return response.choices[0].message.content
 
 
@@ -42,5 +43,5 @@ if __name__ == "__main__":
     #  0.5-> My dog is playful and loves to chase after balls in the park.
     #  0.2-> My dog is playful and loves to chase after balls in the park.
 
-    response_text: str = get_response(input_prompt, temperature=1.0)
+    response_text: str = get_response(input_prompt, temperature=1.0, max_completion_tokens=10)
     print(f"response_temp_01 : {response_text}")
