@@ -10,14 +10,14 @@ LLM = "gpt-4o"
 
 
 # Call the openai chat.completions endpoint
-def ask_openai(size="1024x1024") -> ImagesResponse:
+def ask_openai() -> ImagesResponse:
     print(f"LLM : {LLM}")
 
     response = client.images.create_variation(
         model="dall-e-2",
         image=open("resources/generated_image.png", "rb"),  # image is sent in binary format
         n=1,
-        size=size,
+        size="1024x1024",
     )
 
     print(f"response  type : {type(response)}")
