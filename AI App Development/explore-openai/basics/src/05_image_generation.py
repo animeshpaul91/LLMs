@@ -12,12 +12,20 @@ image_url = "https://www.invoicesimple.com/wp-content/uploads/2018/06/Sample-Inv
 # Call the openai chat.completions endpoint
 def ask_openai(user_question: str) -> ChatCompletion:
     print(f"LLM : {LLM}")
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=user_question,
+        size="1024x1024",
+        quality="hd",
+        #n=1,
+    )
     print(f"response  type : {type(response)}")
     return response
 
 
 if __name__ == "__main__":
     # Step 4 :
-    user_question = "Hello"
-
-    response: ChatCompletion = ask_openai(user_question)
+    input_prompt = "Generate an image of a dog and a cat sitting together."
+    llm_response: ChatCompletion = ask_openai(input_prompt)
+    image_url = llm_response.data[0].url
+    print("Generated Image URL:", image_url)
