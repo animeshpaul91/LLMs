@@ -1,3 +1,4 @@
+import json
 import os
 
 from dotenv import load_dotenv
@@ -27,6 +28,8 @@ def ask_openai(
     response = client.chat.completions.create(
         model=LLM,
         messages=[
+            {"role": "system", "content": system_message},
+            {"role": "user", "content": "My name is Animesh\n"},
             {"role": "user", "content": user_question},
         ],
         temperature=temperature,
@@ -34,14 +37,17 @@ def ask_openai(
         top_p=top_p,
     )
 
-    print(f"response  type : {type(response)}")
     return response
 
 
 if __name__ == "__main__":
-    user_question = "Hello"
-    response: ChatCompletion = ask_openai(user_question)
+    # user_prompt = "How do I create a Thread in Python ?"
+    user_prompt = "What is my name?"
+    llm_response: ChatCompletion = ask_openai(user_prompt)
 
     # Pretty print the entire response
-    response = response.choices[0].message.content
-    print(f"response : {response}")
+    response_dict = llm_response.to_dict()
+    print(json.dumps(response_dict, indent=4))
+
+    string_response = llm_response.choices[0].message.content
+    print(f"response : {string_response}")
