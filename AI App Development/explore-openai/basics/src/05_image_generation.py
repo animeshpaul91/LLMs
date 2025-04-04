@@ -36,4 +36,5 @@ if __name__ == "__main__":
 
     with open(f"resources/{file_name}", "wb") as binary_file:
         binary_file.write(image_data)
-        print(f"File was successfully generated with name {file_name}")
+
+    print(f"File was successfully generated with name {file_name}")
