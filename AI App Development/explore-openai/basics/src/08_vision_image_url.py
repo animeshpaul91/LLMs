@@ -1,4 +1,3 @@
-import base64
 import os
 
 from dotenv import load_dotenv
@@ -32,7 +31,10 @@ def ask_openai(
                         "type": "text",
                         "text": user_question,
                     },
-                    {"type": "image_url", "image_url": {"url": image_url}},
+                    {
+                        "type": "image_url",
+                        "image_url": {"url": image_url}
+                    },
                 ],
             }
         ],
@@ -47,11 +49,11 @@ def ask_openai(
 
 if __name__ == "__main__":
     # Step 4 :
-    user_question = """
+    llm_prompt = """
     Hello, Extract the info from this invoice image in json format.
     Do not include ```json in the response"""
-    response: ChatCompletion = ask_openai(user_question)
+    llm_response: ChatCompletion = ask_openai(llm_prompt)
 
     # Pretty print the entire response
-    response = response.choices[0].message.content
-    print(f"response : {response}")
+    response_string = llm_response.choices[0].message.content
+    print(f"response : {response_string}")
