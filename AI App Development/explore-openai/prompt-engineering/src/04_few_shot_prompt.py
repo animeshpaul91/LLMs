@@ -57,11 +57,10 @@ def classify_using_few_shot_prompting():
 
     """
     prompt = f"""
-        Categorize the following customer support query within the triple ticks into one of the categories: Billing Issue, Technical Support, Account Management, or General Inquiry:
-        Please ignore the triple ticks in the resposne. \n
+        Categorize the following customer support query within the triple ticks into one of the categories: 
+        Billing Issue, Technical Support, Account Management, or General Inquiry. You are given a few examples. \n
         ```
         {text}
-
         ```
     """
     response = ask_openai(prompt)
@@ -69,5 +68,5 @@ def classify_using_few_shot_prompting():
 
 
 if __name__ == "__main__":
-    classify_prompt()
+    # classify_prompt()
     classify_using_few_shot_prompting()
