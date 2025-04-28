@@ -35,11 +35,11 @@ def multi_step_instruction():
 
     1. Summarize the text in one sentence.
     2. Translate the summary into French.
-    3. List the key people mentioned in the text.
+    3. List the names of the key family members mentioned in the text.
     4. Output a JSON object with the structure:
     {{
         "summary": "<your summary>",
-        "translation": "<translated summary>",
+        "french_translated_summary": "<french translated summary>",
         "people": ["<person1>", "<person2>", ...]
     }}
 
@@ -52,11 +52,9 @@ def multi_step_instruction():
 
 def analyze_person_profile():
     text = """
-    ```
     John is a 34-year-old architect living in London. He has been working in the field for over 10 years and specializes in sustainable building designs.
     John is married to Sarah, and they have a son named Liam. In his free time, he enjoys hiking, reading books about history, and volunteering at a local community center.
     John is passionate about making a positive impact on the environment through his work.
-    ```
     """
 
     prompt = f"""
@@ -86,12 +84,10 @@ Please ensure your answers are separated by line breaks.
 
 def analyze_personal_journey():
     text = """
-    ```
     Emily is an aspiring author who has been working on her first novel for three years. 
     She often struggles with self-doubt and feels that her work may never be good enough. 
     Despite this, she remains dedicated to improving her craft, writing every day, and learning from her mistakes.
     In addition to writing, Emily enjoys painting and taking long walks in nature, which help her clear her mind and find inspiration.
-    ```
     """
 
     prompt = f"""
@@ -113,7 +109,7 @@ def analyze_personal_journey():
     Please ensure your answers are separated by line breaks.
 
         Text to process:
-        ```{text}```
+        ```{text}```        
     """
     response = ask_openai(prompt=prompt)
     # Print the Type and Response
@@ -121,6 +117,6 @@ def analyze_personal_journey():
 
 
 if __name__ == "__main__":
-    multi_step_instruction()
+    # multi_step_instruction()
     # analyze_person_profile()
-    # analyze_personal_journey()
+    analyze_personal_journey()
