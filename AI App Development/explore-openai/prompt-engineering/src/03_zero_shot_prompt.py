@@ -37,10 +37,10 @@ def zero_shot_prompting():
 def zero_shot_prompting_1():
     text = """
     The product arrived on time, but it was damaged and didn’t work."
-
     """
+
     prompt = f"""
-        What is the sentiment of this sentence within triple backticks ?\
+        What is the sentiment of this sentence within triple backticks ?\n
         ```{text}```
     """
     response = ask_openai(prompt)
@@ -48,5 +48,5 @@ def zero_shot_prompting_1():
 
 
 if __name__ == "__main__":
-    zero_shot_prompting()
+    # zero_shot_prompting()
     zero_shot_prompting_1()
