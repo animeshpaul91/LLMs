@@ -50,11 +50,9 @@ def extract_flight_info_few_shot():
     I need details like name, booking date, flight information (flight number, origin, destination, departure/arrival times), 
     luggage details, ticket price, and seat number.
 
-    Here is an example output of the JSON format:\n
-    {few_shot_example}
-
-    \n
-
+    Here is an example output of the JSON format delimited in angular brackets:
+    Format: <{few_shot_example}>
+    
     Text: ```{text}```
    
     """
