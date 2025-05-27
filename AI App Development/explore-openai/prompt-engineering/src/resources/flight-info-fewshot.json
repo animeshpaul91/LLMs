@@ -16,7 +16,7 @@
     },
     "ticket_price": {
         "value": "450.00",
-        "currency": "DOLLAR"
+        "currency": "USD"
     },
     "seat_number": "14A"
 }

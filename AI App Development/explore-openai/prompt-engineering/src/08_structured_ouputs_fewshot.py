@@ -23,24 +23,25 @@ def ask_openai(
 
 
 def extract_flight_info_few_shot():
-    text = """
-    Emily Thompson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123.
-    The departure time is 8:00 AM, and the arrival time is 11:30 AM. She has a carry-on bag and a checked bag.
-    Her ticket price was 450.00$, and she will be seated in 14A.
-    """
     # text = """
     # Emily Thompson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123.
     # The departure time is 8:00 AM, and the arrival time is 11:30 AM. She has a carry-on bag and a checked bag.
-    # Her ticket price was 450.00€, and she will be seated in 14A.
+    # Her ticket price was $450.00, and she will be seated in 14A.
     # """
 
     # text = """
-    # Li Wei booked a flight on November 5, 2024. He will be flying from Beijing (PEK) to Shanghai (PVG) on flight number CA456.
-    # The departure time is 10:00 AM, and the arrival time is 12:30 PM. He has a carry-on bag and one checked bag.
-    # His ticket price was ¥3,200.00, and he will be seated in 22C.
+    # Emily Thompson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123.
+    # The departure time is 8:00 AM, and the arrival time is 11:30 AM. She has a carry-on bag and a checked bag.
+    # Her ticket price was €450.00, and she will be seated in 14A.
     # """
 
-    few_shot_example = ""
+    text = """
+    Li Wei booked a flight on November 5, 2024. He will be flying from Tokyo (HND) to Osaka (KIX) on flight number CA456.
+    The departure time is 10:00 AM, and the arrival time is 12:30 PM. He has a carry-on bag and one checked bag.
+    His ticket price was ¥3,200.00, and he will be seated in 22C.
+    """
+
+    few_shot_example = None
     with open("resources/flight-info-fewshot.json", "r") as file:
         few_shot_example = file.read()
 
@@ -63,5 +64,5 @@ def extract_flight_info_few_shot():
 
 
 if __name__ == "__main__":
-    response: ChatCompletion = extract_flight_info_few_shot()
-    print(f"response  : {response.choices[0].message.content}")
+    flight_response: ChatCompletion = extract_flight_info_few_shot()
+    print(f"response  : {flight_response.choices[0].message.content}")
