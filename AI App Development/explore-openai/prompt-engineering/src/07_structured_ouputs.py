@@ -73,7 +73,6 @@ def extract_order_details():
     I need details like name, order date, product names, quantities, prices, shipping address, and delivery date.
 
     Text: ```{text}```
-   
 
     """
     response = ask_openai(prompt=prompt)
@@ -83,7 +82,7 @@ def extract_order_details():
 
 def extract_flight_info():
     text = """
-    Emily Thompson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123. 
+    Emily Thomson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123. 
     The departure time is 8:00 AM, and the arrival time is 11:30 AM. She has a carry-on bag and a checked bag. 
     Her ticket price was $450.00, and she will be seated in 14A.
     """
@@ -127,13 +126,13 @@ def article_summary():
 
 if __name__ == "__main__":
     # Retail - Retrieve Order Detail
-    response: ChatCompletion = extract_order_details()
-    print(f"response  : {response.choices[0].message.content}")
+    # order_response: ChatCompletion = extract_order_details()
+    # print(f"response  : {order_response.choices[0].message.content}")
 
     # Travel - Retrieve Flight Info
-    # response: ChatCompletion = extract_flight_info()
-    # print(f"response  : {response.choices[0].message.content}")
+    travel_response: ChatCompletion = extract_flight_info()
+    print(f"response  : {travel_response.choices[0].message.content}")
 
     # Finance - Article Summary
-    # response: ChatCompletion = article_summary()
-    # print(f"response  : {response.choices[0].message.content}")
+    # finance_response: ChatCompletion = article_summary()
+    # print(f"response  : {finance_response.choices[0].message.content}")
