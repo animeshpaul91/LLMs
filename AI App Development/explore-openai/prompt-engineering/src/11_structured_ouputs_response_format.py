@@ -2,7 +2,9 @@ import os
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from openai.types.chat.chat_completion import ChatCompletion
+from openai.types.chat.parsed_chat_completion import ParsedChatCompletion
+
+from model.flight_model import Booking
 
 load_dotenv()
 
@@ -32,8 +34,8 @@ Your tasks include:
      - **Currency**
         - Currencies should be mentioned only in text:
         Examples are:
-        $ should be represented as DOLLAR
-        € should be represented as EURO
+        $ should be represented as USD
+        € should be represented as EUR
    - **Seat Number**
 
 2. **Formatting Instructions:**
@@ -51,19 +53,19 @@ Your tasks include:
 
 Please do not include json and ``` in the generated JSON.   
 """
-# Max'x age is 30 years
+
+# Max's age is 30 years
 
 
-def ask_openai(
-    prompt: str,
-):
+def ask_openai(prompt: str) -> ParsedChatCompletion:
     # response = client.chat.completions.create(
     response = client.beta.chat.completions.parse(
-        # model="gpt-4o-2024-08-06",
+        model="gpt-4o-2024-08-06",
         messages=[
-            # {"role": "system", "content": system_message},
+            {"role": "system", "content": system_message},
             {"role": "user", "content": prompt},
         ],
+        response_format=Booking
     )
     return response
 
@@ -97,5 +99,10 @@ if __name__ == "__main__":
     # person_extrction(prompt)
 
     # With System Message
-    response: ChatCompletion = extract_flight_info_system_message()
-    # json_data = response.choices[0].message.content
+    response: ParsedChatCompletion = extract_flight_info_system_message()
+    message = response.choices[0].message
+
+    if message.parsed:
+        booking: Booking = message.parsed
+        print(f"booking : {booking}")
+        print(f"flight_info : {booking.flight_info}")

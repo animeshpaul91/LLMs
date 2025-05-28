@@ -1,12 +1,10 @@
-import json
 import os
 
 from dotenv import load_dotenv
-from model.flight_model import Booking
 from openai import OpenAI
-from openai.types.chat.chat_completion import ChatCompletion
 from openai.types.chat.parsed_chat_completion import ParsedChatCompletion
-from pydantic import ValidationError
+
+from model.flight_model import Booking
 
 load_dotenv()
 
@@ -36,8 +34,8 @@ Your tasks include:
      - **Currency**
         - Currencies should be mentioned only in text:
         Examples are:
-        $ should be represented as DOLLAR
-        € should be represented as EURO
+        $ should be represented as USD
+        € should be represented as EUR
    - **Seat Number**
 
 2. **Formatting Instructions:**
@@ -55,7 +53,8 @@ Your tasks include:
 
 Please do not include json and ``` in the generated JSON.   
 """
-# Max'x age is 30 years
+
+# Max's age is 30 years
 from pydantic import BaseModel, Field
 
 
@@ -105,7 +104,6 @@ def extract_flight_info_system_message():
 
 
 if __name__ == "__main__":
-
     # With System Message
     response: ParsedChatCompletion = extract_flight_info_system_message()
     # json_data = response.choices[0].message.content
