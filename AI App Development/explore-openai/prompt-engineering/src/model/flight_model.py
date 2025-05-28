@@ -4,11 +4,16 @@ from pydantic import BaseModel
 
 
 class CurrencyEnum(str, Enum):
-    DOLLAR = "DOLLAR"
-    EURO = "EURO"
-    YUAN = "YUAN"
+    USD = "USD"
+    EUR = "EUR"
     CNY = "CNY"
-    YEN = "YEN"
+    JPY = "JPY"
+    SGD = "SGD"
+    AUD = "AUD"
+    NZD = "NZD"
+    GBP = "GBP"
+    INR = "INR"
+    RUB = "RUB"
     # Add other currencies as needed
 
 

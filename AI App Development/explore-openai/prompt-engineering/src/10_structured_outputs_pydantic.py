@@ -2,17 +2,18 @@ import json
 import os
 
 from dotenv import load_dotenv
-from model.flight_model import Booking
 from openai import OpenAI
 from openai.types.chat.chat_completion import ChatCompletion
 from pydantic import ValidationError
+
+from model.flight_model import Booking
 
 load_dotenv()
 
 client = OpenAI()
 LLM = os.environ.get("OPEN_AI_MODEL")
 system_message = """
-You are an AI assistant specialized in extracting detailed flight booking information from given text and formatting it into a structured JSON object. 
+You are an AI assistant specialized in extracting detailed flight booking information from given text and formatting it into a structured JSON object.
 
 Your tasks include:
 
@@ -35,8 +36,8 @@ Your tasks include:
      - **Currency**
         - Currencies should be mentioned only in text:
         Examples are:
-        $ should be represented as DOLLAR
-        € should be represented as EURO
+        $ should be represented as USD
+        € should be represented as EUR
    - **Seat Number**
 
 2. **Formatting Instructions:**
@@ -69,7 +70,7 @@ def ask_openai(
     return response
 
 
-def process_flight_info(json_data) -> Booking:
+def process_flight_info(json_data) -> Booking | None:
     # Load JSON data
     data = json.loads(json_data)
 
@@ -102,16 +103,7 @@ def extract_flight_info_few_shot():
     His ticket price was ¥3,200.00, and he will be seated in 22C.
     """
 
-    additional_info = ""
-    # additional_info = """
-    # Currencies should be mentioned only in text:
-    # Examples are:
-    # $ should be represented as DOLLAR
-    # € should be represented as EURO
-    # """
-
-    few_shot_example = ""
-    with open("prompt_engineering/resources/flight-info-fewshot.json", "r") as file:
+    with open("resources/flight-info-fewshot.json", "r") as file:
         few_shot_example = file.read()
 
     prompt = f"""
@@ -123,9 +115,6 @@ def extract_flight_info_few_shot():
 
     Here is an example output of the JSON format:\n
     {few_shot_example}
-
-    \n
-    {additional_info}
 
     Text: ```{text}```
    
@@ -172,9 +161,9 @@ def extract_flight_info_system_message():
 
 if __name__ == "__main__":
     # Without System Message
-    response: ChatCompletion = extract_flight_info_few_shot()
-    json_data = response.choices[0].message.content
-    print(f"json_data  : {json_data}")
+    prompt_response: ChatCompletion = extract_flight_info_few_shot()
+    json_data_string = prompt_response.choices[0].message.content
+    print(f"json_data  : {json_data_string}")
 
     # With System Message
     # response: ChatCompletion = extract_flight_info_system_message()
@@ -182,5 +171,5 @@ if __name__ == "__main__":
     # print(f"json_data  : {json_data}")
 
     # Call the function with the json_data
-    booking = process_flight_info(json_data)
-    print(f"booking : {booking}")
+    flight_booking = process_flight_info(json_data_string)
+    print(f"booking : {flight_booking}")
