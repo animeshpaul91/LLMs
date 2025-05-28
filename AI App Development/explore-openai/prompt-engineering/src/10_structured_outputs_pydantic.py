@@ -97,11 +97,11 @@ def extract_flight_info_few_shot():
     # Her ticket price was 450.00€, and she will be seated in 14A.
     # """
 
-    text = """
-    Li Wei booked a flight on November 5, 2024. He will be flying from Beijing (PEK) to Shanghai (PVG) on flight number CA456.
-    The departure time is 10:00 AM, and the arrival time is 12:30 PM. He has a carry-on bag and one checked bag.
-    His ticket price was ¥3,200.00, and he will be seated in 22C.
-    """
+    # text = """
+    # Li Wei booked a flight on November 5, 2024. He will be flying from Beijing (PEK) to Shanghai (PVG) on flight number CA456.
+    # The departure time is 10:00 AM, and the arrival time is 12:30 PM. He has a carry-on bag and one checked bag.
+    # His ticket price was ¥3,200.00, and he will be seated in 22C.
+    # """
 
     with open("resources/flight-info-fewshot.json", "r") as file:
         few_shot_example = file.read()
@@ -118,8 +118,8 @@ def extract_flight_info_few_shot():
 
     Text: ```{text}```
    
-
     """
+
     response = ask_openai(prompt=prompt)
     # Print the Type and Response
     return response
@@ -127,7 +127,7 @@ def extract_flight_info_few_shot():
 
 def extract_flight_info_system_message():
     text = """
-    Emily Thompson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123.
+    Emily Thomson booked a flight on October 10, 2024. She will be flying from New York (JFK) to Los Angeles (LAX) on flight number AA123.
     The departure time is 8:00 AM, and the arrival time is 11:30 AM. She has a carry-on bag and a checked bag.
     Her ticket price was 450.00$, and she will be seated in 14A.
     """
@@ -144,7 +144,7 @@ def extract_flight_info_system_message():
     # """
 
     few_shot_example = ""
-    with open("prompt_engineering/resources/flight-info-fewshot.json", "r") as file:
+    with open("resources/flight-info-fewshot.json", "r") as file:
         few_shot_example = file.read()
 
     prompt = f"""
@@ -161,14 +161,14 @@ def extract_flight_info_system_message():
 
 if __name__ == "__main__":
     # Without System Message
-    prompt_response: ChatCompletion = extract_flight_info_few_shot()
-    json_data_string = prompt_response.choices[0].message.content
-    print(f"json_data  : {json_data_string}")
+    # prompt_response: ChatCompletion = extract_flight_info_few_shot()
+    # json_data_string = prompt_response.choices[0].message.content
+    # print(f"json_data  : {json_data_string}")
 
     # With System Message
-    # response: ChatCompletion = extract_flight_info_system_message()
-    # json_data = response.choices[0].message.content
-    # print(f"json_data  : {json_data}")
+    prompt_response: ChatCompletion = extract_flight_info_system_message()
+    json_data_string = prompt_response.choices[0].message.content
+    print(f"json_data  : {json_data_string}")
 
     # Call the function with the json_data
     flight_booking = process_flight_info(json_data_string)
