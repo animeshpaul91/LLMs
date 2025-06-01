@@ -29,9 +29,7 @@ tools = [
 ]
 
 
-def ask_openai(
-        custom_messages: list,
-) -> ChatCompletion:
+def ask_openai(custom_messages: list) -> ChatCompletion:
     messages = [{"role": "system", "content": system_message}]
     messages.extend(custom_messages)
     # print(f"messages : {messages}")
@@ -53,9 +51,9 @@ def app() -> None:
         user_message = [{"role": "user", "content": prompt}]
         prompt_response: ChatCompletion = ask_openai(user_message)
         message = prompt_response.choices[0].message
-        print(f"LLM Response: {message.content}")
 
         if message.tool_calls:
+            print(f"LLM Response: {message}")
             function = message.tool_calls[0].function
             # print(f"function : {function}")
             tool_name = function.name
@@ -71,6 +69,8 @@ def app() -> None:
                 print(f"Assistant Response from Tool: {second_response.choices[0].message.content}")
             else:
                 print(f"Assistant Response : {message.content}")
+        else:
+            print(message.content)
 
 
 if __name__ == "__main__":
