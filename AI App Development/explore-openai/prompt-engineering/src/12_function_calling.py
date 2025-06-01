@@ -9,8 +9,11 @@ load_dotenv()
 
 client = OpenAI()
 LLM = os.environ.get("OPEN_AI_MODEL")
-system_message = """
-You are a helpful assistant!
+
+system_message = """You are an intelligent assistant capable of performing a wide variety of tasks using predefined functions.
+These functions include retrieving real-time data such as weather information, stock prices, and time and more.
+Always choose the appropriate function based on the user’s query. Ensure that responses are clear, accurate, and only invoke functions when required.
+If the task cannot be completed using the available functions, politely inform the user.
 """
 
 def get_current_time() -> str:
