@@ -1,13 +1,13 @@
-import json
 import os
 from datetime import datetime, timezone
 
 import requests
 import yfinance as yf
 from dotenv import load_dotenv
-from model.weather_model import OpenMeteoInput
 from openai import OpenAI
-from openai.types.chat.chat_completion import ChatCompletion, ChatCompletionMessage
+from openai.types.chat.chat_completion import ChatCompletion
+
+from model.weather_model import OpenMeteoInput
 
 load_dotenv()
 
@@ -16,6 +16,13 @@ LLM = os.environ.get("OPEN_AI_MODEL")
 system_message = """
 You are a helpful assistant!
 """
+
+
+# system_message = """You are an intelligent assistant capable of performing a wide variety of tasks using predefined functions.
+# These functions include retrieving real-time data such as weather information, stock prices, and time and more.
+# Always choose the appropriate function based on the user’s query. Ensure that responses are clear, accurate, and only invoke functions when required.
+# If the task cannot be completed using the available functions, politely inform the user.
+# """
 
 
 def get_current_weather(openMeteoInput: OpenMeteoInput):
@@ -70,17 +77,21 @@ def get_current_stock_value(ticker_symbol):
     print(todays_data.to_string(index=False))
     return f"The stock price of {ticker_symbol} is,  {todays_data['Close'].iloc[0]}"
 
-system_message = """You are an intelligent assistant capable of performing a wide variety of tasks using predefined functions. 
-These functions include retrieving real-time data such as weather information, stock prices, and time and more.
-Always choose the appropriate function based on the user’s query. Ensure that responses are clear, accurate, and only invoke functions when required. 
-If the task cannot be completed using the available functions, politely inform the user.
-"""
 
-system_message = """You are a helpful assistant!"""
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_time",
+            "description": "Get the current system time",
+            "parameters": {}
+        }
+    }
+]
 
 
 def ask_openai(
-    custom_messages: list,
+        custom_messages: list,
 ) -> ChatCompletion:
     messages = [{"role": "system", "content": system_message}]
     messages.extend(custom_messages)
@@ -88,19 +99,41 @@ def ask_openai(
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=messages,
+        tools=tools,
+        tool_choice="auto"
     )
     return response
 
 
 if __name__ == "__main__":
-    # Initial promptsç
-    prompt = "Whats the current time?"
-    # prompt = "Whats the current weather in new york?"
-    # prompt = "Whats the current stock value of Tesla?"
+    # Initial prompt
+    #prompt = "Whats the current time?"
+    #prompt = "Whats the current weather in new york?"
+    prompt = "Whats the current stock value of Tesla?"
 
     user_message = [{"role": "user", "content": prompt}]
-    response: ChatCompletion = ask_openai(user_message)
-    print(f"response  : {response.choices[0].message.content}")
+    prompt_response: ChatCompletion = ask_openai(user_message)
+    message = prompt_response.choices[0].message
+    print(f"Assistant Response : {message}")
+
+    if message.tool_calls:
+        function = message.tool_calls[0].function
+        print(f"function : {function}")
+        tool_name = function.name
+        if tool_name == "get_current_time":
+            result = get_current_time()
+            tool_call_id = message.tool_calls[0].id
+            custom_messages = [
+                {"role": "user", "content": prompt},
+                message,
+                {"role": "tool", "name": tool_name, "content": result, "tool_call_id": tool_call_id}
+            ]
+            second_response = ask_openai(custom_messages=custom_messages)
+            print(f"Assistant Response from Tool: {second_response.choices[0].message.content}")
+        else:
+            print(f"Assistant Response : {message.content}")
+    else:
+        print("Tool not available with LLM")
 
     # Complete App
     # app()
