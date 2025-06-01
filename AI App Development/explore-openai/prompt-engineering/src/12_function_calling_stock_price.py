@@ -1,5 +1,5 @@
-import os
 import json
+import os
 
 import yfinance as yf
 from dotenv import load_dotenv
@@ -18,7 +18,7 @@ If the task cannot be completed using the available functions, politely inform t
 """
 
 
-def get_current_stock_value(ticker_symbol: str) -> str:
+def get_current_stock_price(ticker_symbol: str) -> str:
     ticker = yf.Ticker(ticker_symbol)
     today_data = ticker.history(period="1d")
     # print(today_data.to_string(index=False))
@@ -29,14 +29,14 @@ tools = [
     {
         "type": "function",
         "function": {
-            "name": "get_current_stock_value",
-            "description": "Get the current stock value for a given ticker symbol.",
+            "name": "get_current_stock_price",
+            "description": "Get the current stock price for a given ticker symbol.",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "ticker_symbol": {
                         "type": "string",
-                        "description": "The ticker symbol to get the stock value for.",
+                        "description": "The ticker symbol to get the stock price for.",
                     },
                 },
                 "required": ["ticker_symbol"]
@@ -69,15 +69,15 @@ def app() -> None:
         user_message = [{"role": "user", "content": prompt}]
         prompt_response: ChatCompletion = ask_openai(user_message)
         message = prompt_response.choices[0].message
-        print(f"LLM Response: {message}")
 
         if message.tool_calls:
+            print(f"LLM Response: {message}")
             function = message.tool_calls[0].function
             arguments = json.loads(function.arguments)
             ticker_symbol = arguments.get("ticker_symbol")
             # print(f"function : {function}")
             tool_name = function.name
-            result = get_current_stock_value(ticker_symbol)
+            result = get_current_stock_price(ticker_symbol)
             tool_call_id = message.tool_calls[0].id
             custom_messages = [
                 {"role": "user", "content": prompt},
@@ -86,6 +86,8 @@ def app() -> None:
             ]
             second_response = ask_openai(custom_messages=custom_messages)
             print(f"Assistant Response from Tool: {second_response.choices[0].message.content}")
+        else:
+            print(message.content)
 
 
 if __name__ == "__main__":
