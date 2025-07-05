@@ -57,10 +57,10 @@ def response_generator(user_question: str) -> str:
 
 
 def run() -> None:
-    # Streamlit Web-Page Layout
+    # Set Streamlit Web-Page Layout
     set_streamlit_config()
 
-    prompt = st.chat_input("Add your prompt..")
+    prompt = st.chat_input("Ask anything")
 
     if prompt:
         st.chat_message("user").write(prompt)
