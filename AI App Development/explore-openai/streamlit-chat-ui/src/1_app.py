@@ -12,7 +12,7 @@ LLM = os.environ.get("OPEN_AI_MODEL")
 
 # Call the openai chat.completions endpoint
 def ask_openai(user_question: str, temperature: float = 1.0, top_p: float = 1.0, max_tokens: int = 256, stream=False) -> str:
-    print("Starting LLM call")
+    print("\nStarting LLM call")
     response = client.chat.completions.create(model=LLM,
         messages=[{"role": "user", "content": user_question}],
         temperature=temperature,
@@ -25,9 +25,11 @@ def ask_openai(user_question: str, temperature: float = 1.0, top_p: float = 1.0,
     print(f"Fetched LLM response: \n{llm_response}")
     return llm_response
 
-st.set_page_config(page_title="Chat Application")
-st.header("Chat :blue[Application]")
-st.chat_message("ai").write("Hello, how can I help you today?")
+def set_streamlit_config():
+    st.set_page_config(page_title="Chat Application")
+    st.header("Chat :blue[Application]")
+    st.chat_message("ai").write("Hello, how can I help you today?")
+
 
 def run() -> None:
     prompt = st.chat_input("Add your prompt..")
@@ -38,4 +40,5 @@ def run() -> None:
         st.chat_message("ai").write(llm_output)
 
 if __name__ == "__main__":
+    set_streamlit_config()
     run()
