@@ -12,28 +12,25 @@ client = OpenAI()
 LLM = os.environ.get("OPEN_AI_MODEL")
 
 
+USER, BOT = "user", "bot"
 class ChatMessage(BaseModel):
     sender: str
     content: str
     pass
 
-USER, BOT = "user", "bot"
 
-
-# Streamlit Web-Page Layout
-st.set_page_config(page_title="Chat Application")
-st.header(":blue[Chat Application]")
-
-if "chat_history" not in st.session_state:
-    st.session_state["chat_history"] = [ChatMessage(sender=BOT, content="Hello, how may I help you today?")]
-
-chat_history = st.session_state["chat_history"]
-
-for chat_message in chat_history:
-    if chat_message.sender == BOT:
-        st.chat_message("ai").write(chat_message.content)
-    if chat_message.sender == USER:
-        st.chat_message("human").write(chat_message.content)
+def set_streamlit_config():
+    global chat_history
+    st.set_page_config(page_title="Chat Application")
+    st.header(":blue[Chat Application]")
+    if "chat_history" not in st.session_state:
+        st.session_state["chat_history"] = [ChatMessage(sender=BOT, content="Hello, how may I help you today?")]
+    chat_history = st.session_state["chat_history"]
+    for chat_message in chat_history:
+        if chat_message.sender == BOT:
+            st.chat_message("ai").write(chat_message.content)
+        if chat_message.sender == USER:
+            st.chat_message("human").write(chat_message.content)
 
 
 # Call the openai chat.completions endpoint
@@ -61,6 +58,9 @@ def response_generator(user_question: str) -> str:
 
 
 def run() -> None:
+    # Streamlit Web-Page Layout
+    set_streamlit_config()
+
     prompt = st.chat_input("Add your prompt..")
 
     if prompt:
