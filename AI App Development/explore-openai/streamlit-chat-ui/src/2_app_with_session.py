@@ -20,7 +20,6 @@ class ChatMessage(BaseModel):
 
 
 def set_streamlit_config():
-    global chat_history
     st.set_page_config(page_title="Chat Application")
     st.header(":blue[Chat Application]")
     if "chat_history" not in st.session_state:
@@ -30,7 +29,7 @@ def set_streamlit_config():
         if chat_message.sender == BOT:
             st.chat_message("ai").write(chat_message.content)
         if chat_message.sender == USER:
-            st.chat_message("human").write(chat_message.content)
+            st.chat_message("user").write(chat_message.content)
 
 
 # Call the openai chat.completions endpoint
@@ -65,13 +64,13 @@ def run() -> None:
 
     if prompt:
         st.chat_message("user").write(prompt)
-        st.session_state["chat_history"] += [ChatMessage(sender=USER, content=prompt)]
+        st.session_state["chat_history"].append(ChatMessage(sender=USER, content=prompt))
         output = response_generator(prompt)
 
         with st.chat_message("ai"):
             ai_message = st.write_stream(output)
 
-        st.session_state["chat_history"] += [ChatMessage(sender=BOT, content=ai_message)]
+        st.session_state["chat_history"].append(ChatMessage(sender=BOT, content=ai_message))
 
 
 if __name__ == "__main__":
