@@ -110,8 +110,10 @@ def run() -> None:
             # Store response message
             st.session_state.conversations[st.session_state.active_chat_id].append(ChatMessage(sender=BOT, content=ai_message))
 
-            # Update chat title with the latest prompt AFTER rendering
-            st.session_state.chat_titles[st.session_state.active_chat_id] = prompt[:50]  # Limit title length
+            # Set chat title only if it's still "New Chat"
+            current_title = st.session_state.chat_titles.get(st.session_state.active_chat_id, "")
+            if current_title == "New Chat":
+                st.session_state.chat_titles[st.session_state.active_chat_id] = prompt[:50]  # Limit title length
 
             print(f"Logging all chats\n {st.session_state['conversations']}")
 
