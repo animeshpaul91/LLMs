@@ -18,12 +18,15 @@ import sqlite3
 DB_NAME = "todos.db"
 
 
+def get_db_connection():
+    """Helper to get a database connection and cursor."""
+    conn = sqlite3.connect(DB_NAME)
+    return conn, conn.cursor()
+
+
 def init_db():
     """Create the tasks table if it does not exist."""
-    # Connect to the SQLite database.
-    # If the file doesn't exist, it will be created.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Create 'tasks' table if it doesn't already exist.
     cursor.execute('''
@@ -42,9 +45,7 @@ def init_db():
 
 def add_task(title):
     """Add a new task to the database."""
-    # Connect to the database.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Insert a new record with the specified title.
     cursor.execute("INSERT INTO tasks (title) VALUES (?)", (title,))
@@ -57,9 +58,7 @@ def add_task(title):
 
 def list_tasks():
     """List all tasks."""
-    # Connect to the database.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Select all fields from the 'tasks' table.
     cursor.execute("SELECT id, title, done, created_at FROM tasks")
@@ -85,9 +84,7 @@ def list_tasks():
 
 def edit_task(task_id, new_title):
     """Edit the title of an existing task."""
-    # Connect to the database.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Update the 'title' field for the given 'task_id'.
     cursor.execute("UPDATE tasks SET title = ? WHERE id = ?", (new_title, task_id))
@@ -106,9 +103,7 @@ def edit_task(task_id, new_title):
 
 def mark_done(task_id):
     """Mark a task as completed."""
-    # Connect to the database.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Set 'done' to 1 for the specified task.
     cursor.execute("UPDATE tasks SET done = 1 WHERE id = ?", (task_id,))
@@ -125,9 +120,7 @@ def mark_done(task_id):
 
 def delete_task(task_id):
     """Delete a task by its ID."""
-    # Connect to the database.
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    conn, cursor = get_db_connection()
 
     # Delete the record with the matching 'id'.
     cursor.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
