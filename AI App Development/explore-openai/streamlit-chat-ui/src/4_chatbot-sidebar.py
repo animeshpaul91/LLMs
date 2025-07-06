@@ -33,6 +33,8 @@ def set_streamlit_config():
         st.session_state["conversations"] = {}
     if "active_chat_id" not in st.session_state:
         st.session_state["active_chat_id"] = None
+    if "chat_titles" not in st.session_state:
+        st.session_state["chat_titles"] = {}
 
     # Sidebar layout for managing conversations
     with st.sidebar:
@@ -43,10 +45,12 @@ def set_streamlit_config():
             new_chat_id = str(uuid.uuid4())
             st.session_state.conversations[new_chat_id] = [ChatMessage(sender=BOT, content="Hello, how may I help you today?")]
             st.session_state.active_chat_id = new_chat_id
+            st.session_state.chat_titles[new_chat_id] = "New Chat"
 
         # List existing chat sessions
         for chat_id in st.session_state.conversations:
-            if st.button(f"Chat {list(st.session_state.conversations).index(chat_id) + 1}", key=chat_id):
+            title = st.session_state.chat_titles.get(chat_id, "Unnamed Chat")
+            if st.button(title, key=chat_id):
                 st.session_state.active_chat_id = chat_id
 
     # Display messages of the selected conversation
@@ -60,7 +64,6 @@ def set_streamlit_config():
 
 
 # Call the OpenAI API to get a response
-
 def ask_openai(user_question: str, temperature: float = 1.0, top_p: float = 1.0, max_tokens: int = 256) -> Stream[
     ChatCompletionChunk]:
     print("\nStarting LLM call")
@@ -76,7 +79,6 @@ def ask_openai(user_question: str, temperature: float = 1.0, top_p: float = 1.0,
 
 
 # Generator to stream OpenAI response
-
 def response_generator(user_question: str) -> str:
     response_stream: Stream[ChatCompletionChunk] = ask_openai(user_question=user_question)
     print("Fetched LLM response\n")
@@ -87,7 +89,6 @@ def response_generator(user_question: str) -> str:
 
 
 # Main app logic
-
 def run() -> None:
     # Setup Streamlit layout
     set_streamlit_config()
@@ -108,7 +109,11 @@ def run() -> None:
 
             # Store response message
             st.session_state.conversations[st.session_state.active_chat_id].append(ChatMessage(sender=BOT, content=ai_message))
-            print(f"Logging all chats\n {st.session_state["conversations"]}")
+
+            # Update chat title with the latest prompt AFTER rendering
+            st.session_state.chat_titles[st.session_state.active_chat_id] = prompt[:50]  # Limit title length
+
+            print(f"Logging all chats\n {st.session_state['conversations']}")
 
 
 # Run the application
