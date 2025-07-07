@@ -17,7 +17,7 @@ code
 Prompt 3: |
 ==========
 
-Can you add the persistance layer to the streamlit chatbot.
+Can you add the persistence layer to the streamlit chatbot.
 - I would like to save messages in the DB.
 - I would like to have a way to retrieve all the messages from the db
 - I have a rename chat name functionality to update the name with the latest user prompt. 
