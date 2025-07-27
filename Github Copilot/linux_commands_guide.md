@@ -318,4 +318,4 @@ find . -type f -exec ls -lh {} \; | sort -k5 -hr | head -10
 7. **Keep logs clean**: Regular log rotation and analysis
 8. **Security first**: Regular permission audits and updates
 
-Remember: The best command is the one you remember and use effectively. Start with the basics and gradually incorporate more advanced commands into your workflow! 
+Remember: The best command is the one you remember and use effectively. Start with the basics and gradually incorporate more advanced commands into your workflow!
